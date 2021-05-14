@@ -7,6 +7,7 @@ using UnityEngine;
 // basic WASD-style movement control
 public class FpsMovement : MonoBehaviour
 {
+    // set variables
     [SerializeField] private Camera headCam;
 
     public float speed = 6.0f;
@@ -22,11 +23,17 @@ public class FpsMovement : MonoBehaviour
 
     private CharacterController charController;
 
+
+
+    // set the controller
     void Start()
     {
         charController = GetComponent<CharacterController>();
     }
 
+
+
+    // update 
     void Update()
     {
         MoveCharacter();
@@ -34,6 +41,9 @@ public class FpsMovement : MonoBehaviour
         RotateCamera();
     }
 
+
+
+    // use WASD to move the character
     private void MoveCharacter()
     {
         float deltaX = Input.GetAxis("Horizontal") * speed;
@@ -49,11 +59,17 @@ public class FpsMovement : MonoBehaviour
         charController.Move(movement);
     }
 
+
+
+    // use the mouse to turn the character
     private void RotateCharacter()
     {
         transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityHor, 0);
     }
 
+
+
+    // use the mouse to turn the character
     private void RotateCamera()
     {
         rotationVert -= Input.GetAxis("Mouse Y") * sensitivityVert;

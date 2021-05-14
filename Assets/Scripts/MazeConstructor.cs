@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MazeConstructor : MonoBehaviour
 {
+    // set variables
     public bool showDebug;
 
     [SerializeField] private Material mazeMat1;
@@ -46,6 +47,9 @@ public class MazeConstructor : MonoBehaviour
     private MazeDataGenerator dataGenerator;
     private MazeMeshGenerator meshGenerator;
 
+
+
+    // instantiate maze data and mesh generators
     void Awake()
     {
         dataGenerator = new MazeDataGenerator();
@@ -60,6 +64,9 @@ public class MazeConstructor : MonoBehaviour
         };
     }
 
+
+
+    // generate a new maze 
     public void GenerateNewMaze(int sizeRows, int sizeCols,
         TriggerEventHandler startCallback=null, TriggerEventHandler goalCallback=null)
     {
@@ -85,6 +92,9 @@ public class MazeConstructor : MonoBehaviour
         PlaceGoalTrigger(goalCallback);
     }
 
+
+
+    // display the maze 
     private void DisplayMaze()
     {
         GameObject go = new GameObject();
@@ -102,6 +112,9 @@ public class MazeConstructor : MonoBehaviour
         mr.materials = new Material[2] {mazeMat1, mazeMat2};
     }
 
+
+
+    // get rid of the previous maze
     public void DisposeOldMaze()
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Generated");
@@ -110,6 +123,9 @@ public class MazeConstructor : MonoBehaviour
         }
     }
 
+
+
+    // locate where user will start
     private void FindStartPosition()
     {
         int[,] maze = data;
@@ -130,6 +146,9 @@ public class MazeConstructor : MonoBehaviour
         }
     }
 
+
+
+    // locate where treasure chest will be
     private void FindGoalPosition()
     {
         int[,] maze = data;
@@ -151,6 +170,9 @@ public class MazeConstructor : MonoBehaviour
         }
     }
 
+
+
+    // set start trigger
     private void PlaceStartTrigger(TriggerEventHandler callback)
     {
         GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -166,6 +188,8 @@ public class MazeConstructor : MonoBehaviour
     }
     
     
+    
+    // set goal trigger
     private void PlaceGoalTrigger(TriggerEventHandler callback)
     {
         GameObject treasure = (GameObject)Instantiate(treasureChest, new Vector3(goalCol * hallWidth, 0f, goalRow * hallWidth), Quaternion.Euler(-90f, 0f, 0f));

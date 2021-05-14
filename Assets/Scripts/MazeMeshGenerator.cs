@@ -14,6 +14,8 @@ public class MazeMeshGenerator
         height = 3.5f;
     }
 
+    
+    
     public Mesh FromData(int[,] data)
     {
         Mesh maze = new Mesh();
@@ -103,6 +105,8 @@ public class MazeMeshGenerator
         return maze;
     }
 
+    
+    
     private void AddQuad(Matrix4x4 matrix, ref List<Vector3> newVertices,
         ref List<Vector2> newUVs, ref List<int> newTriangles)
     {

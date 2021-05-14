@@ -12,6 +12,8 @@ public class MazeDataGenerator
         placementThreshold = .1f;
     }
 
+    
+    
     public int[,] FromDimensions(int sizeRows, int sizeCols)
     {
         int[,] maze = new int[sizeRows, sizeCols];
