@@ -1179,14 +1179,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811320468}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38890f759500e455b8d86095c14bf863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   timeLabel: {fileID: 0}
-  scoreLabel: {fileID: 0}
 --- !u!114 &1811320472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,7 +1193,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811320468}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37834c4099e2548dfb6334b6b64ae008, type: 3}
   m_Name: 
