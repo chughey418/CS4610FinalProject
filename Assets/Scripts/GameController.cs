@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     private DateTime startTime;
     private int timeLimit;
-    private int reduceLimitBy;
+//    private int reduceLimitBy;
 
     private bool goalReached;
 
@@ -62,6 +62,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!player.enabled)
+        {
+            return;
+        }
+    
         int timeUsed = (int)(DateTime.Now - startTime).TotalSeconds;
         int timeLeft = timeLimit - timeUsed;
 
@@ -72,6 +77,7 @@ public class GameController : MonoBehaviour
         // if you lose
         else
         {
+            player.enabled = false;
             SceneManager.LoadScene(2);
         }
     }
@@ -81,6 +87,8 @@ public class GameController : MonoBehaviour
     // if the user wins, load win menu
     private void OnGoalTrigger(GameObject trigger, GameObject other)
     {
+        goalReached = true;
+        Destroy(trigger);
         SceneManager.LoadScene(3);
     }
 
@@ -90,7 +98,8 @@ public class GameController : MonoBehaviour
     {
         if (goalReached)
         {
-            Invoke("StartNewMaze", 4);
+            player.enabled = false;
+//            Invoke("StartNewMaze", 4);
         }
     }
 }
